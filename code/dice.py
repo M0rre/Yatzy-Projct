@@ -131,3 +131,17 @@ def get_art():
   | ●  ● |●/
   |_●__●_|/
   """
+
+  #Hmm
+  #lines = zip(dice_1.splitlines(), dice_2.splitlines(), dice_3.splitlines(), dice_4.splitlines(), dice_5.splitlines(), dice_6.splitlines())
+  
+  #for line in lines:
+    #print("   ".join(line))
+
+  dices = dice_1, dice_2, dice_3, dice_4, dice_5, dice_6
+  spacing = ' '* 5
+  for pieces in zip(*(dice.splitlines() for dice in dices)):
+    print(spacing.join(pieces))
+
+  print(f"Dice 1: {dice_1:<20} Dice 2: {dice_2:^11} Dice 3: {dice_3:>15} ") 
+get_art()
