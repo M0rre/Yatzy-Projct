@@ -103,7 +103,7 @@ def get_art():
   | ●    |  |
   |   ●  |●/ 
   |_____●|/  
-  """
+ """
   dice_4 ="""
      _______ 
     / ●    /|
@@ -129,11 +129,11 @@ def get_art():
   |_●__●_|/  
   """
 
-  #Hmm
+  # Nu ska den också vara skalbar med antal tärningar kvar och använda vilken tärning som input
   lines = zip(dice_1.splitlines(), dice_2.splitlines(), dice_3.splitlines(), dice_4.splitlines(), dice_5.splitlines(), dice_6.splitlines())
   
   for line in lines:
-    print("   ".join(line))
+    print(" ".join(line))
 """
   dices = dice_1, dice_2, dice_3, dice_4, dice_5, dice_6
   spacing = ' '* 5
