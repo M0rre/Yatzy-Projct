@@ -1,126 +1,60 @@
-def get_art():
-  # Less neat dice
-  die_1 = """
-        ██▓▓██      
-      ██░  ░░███    
-    ███         ▓██ 
-  ██     ░▒ ░   ██▓
-  █   ░  ██░     █▓
-  █   ░░    ░░   █▓ 
-  █▒     ░░  ░ ▒██    
-  ██  ░   ░ ░ ██    
-    ███░░   ░███    
-      ████████      
-  """
- 
-  die_2 = """
-      ███▓▓▓███     
-    ███░      ███   
-  ██░   ░░░    ██  
-  ██  ██     ██  ▓█ 
-  █░             ░█▓
-  ██ ░  ▒░▒░░  ░ ▒█▓
-  ██░ ░     ▒░ ██▓ 
-    ███ ▓░ ░▒ ▓██▓  
-      ███   ████▓   
-        ██████▓     
-  """
+def get_dice_roll(held_dice,total_dice):
+  import random as rand
+  random_n = [rand.randint(1,6) for _ in range(total_dice-held_dice)]
+  print(random_n)
+  
+  return random_n
 
-  die_3 = """
-    ███▓▓▓████
-  ███░      ░███
-  ██░          ▓█▓
-  █ ░██░ ██ ██░ ██▓░
-  █              █▓░
-  █▓▓░ ░░    ▒░  █▓░
-  ██▓  ▓▒▒  ░░ ▒██▓░
-    ██▒░   ░  ███▓
-      ██▒  ▓███▓
-      ▓█████▓
+def get_art(random_n):
+  # Neat dice list
+  dice = [
   """
-
-  die_4 = """
-    ███▓▓▓███    
-  ███░  ░  ▓██ 
-  ██░    ██░   ███   
-  █  ██     ██░ ▒█ 
-  █      ██  ░   █   
-  █▓ ░ ▒▒░░    ▒▓█ 
-  █▓░▒      ▒░▓█
-    ██ ▒      ███  
-    ███   ████   
-      ▓▓█▓▓   
-  """
-
-  die_5 = """
-      ███▓▓▓▓███
-    ███░  █  ░███▓
-  ██           ██▓
-  ██   █ ░█ ░█   ██▓
-  █              ▒█▓
-  █▒ ░ ░░▒█░░  ▒▒██▓
-  ██ ░░     ▒ ▒██▓
-    ██░░░  ▒▒ ███▓
-    ████  ▒███▓
-      ░░▓▓▒░░
-  """
-
-  die_6 = """
-    ███▓▓▓▓▓██
-  ███▒  ▒   ███
-  ██░   ░░█   ██▓
-  █  ░█     █▒  ██
-  █     █    ▒█  █▓
-  █  ░ ░  █ ░░   ▓░
-  ██░ ░     ░ ░ ▓██
-  ▓███ ▒  ░░  ███
-    ▓███   ████▓
-      ░▒▓█▓▒░
-      """
-
-  # Neat dice
-  dice_1 = """
      _______ 
-    /    ● /|
-   /_●___ /●|
-  |      |●●|
-  |   ●  |●/ 
+    /    o /|
+   /_o___ /o|
+  |      |oo|
+  |   ●  |o/ 
   |______|/  
   
   """
-  dice_2 ="""
+  ,
+  """
      _______ 
-    /● ● ● /|
-   /●_●_●_/●|
-  |    ● |●●|
-  |      |●/ 
+    /o o o /|
+   /o_o_o_/o|
+  |    ● |oo|
+  |      |o/ 
   |_●____|/  
   """
-  dice_3 ="""
+  ,
+  """
      _______ 
-    /● ● ● /|
-   /●_●_●_/●|
+    /o o o /|
+   /o_o_o_/o|
   | ●    |  |
-  |   ●  |●/ 
+  |   ●  |o/ 
   |_____●|/  
   """
-  dice_4 ="""
+  ,
+  """
      _______ 
-    / ●    /|
-   /____● / |
-  | ●  ● |● |
+    / o    /|
+   /____o / |
+  | ●  ● |o |
   |      | / 
   |_●__●_|/  
   """
-  dice_5 ="""
+  ,
+  """
      _______ 
-    /● ● ● /|
-   /●_●_●_/●|
-  |●   ● |● |
-  |  ●   |●/ 
+    /o o o /|
+   /o_o_o_/o|
+  |●   ● |o |
+  |  ●   |o/ 
   |●___●_|/  
   """
-  dice_6 ="""
+  ,
+  """
      _______ 
     / o    /|
    /____o /o|
@@ -128,30 +62,20 @@ def get_art():
   | ●  ● |o/ 
   |_●__●_|/  
   """
+  ]
+              # "*" To 
+  lines = zip(*(dice[roll-1].splitlines() for roll in random_n)) 
+  #lines_held= zip()
+  return "\n".join(" ".join(line) for line in lines)
+  
+def main():
+  # Temp variables
+  held_dice = 0
+  total_dice = 5
+  
+  random_n = get_dice_roll(held_dice, total_dice)
+  get_art(random_n)
+  print(get_art(sorted(random_n)))
 
-  # Nu ska den också vara skalbar med antal tärningar kvar och använda vilken tärning som input
-  lines = zip(dice_1.splitlines(), dice_2.splitlines(), dice_3.splitlines(), dice_4.splitlines(), dice_5.splitlines(), dice_6.splitlines())
-  
-  for line in lines:
-    print(" ".join(line))
-  """
-  dices = dice_1, dice_2, dice_3, dice_4, dice_5, dice_6
-  spacing = ' '* 5
-  for pieces in zip(*(dice.splitlines() for dice in dices)):
-    print(spacing.join(pieces))
+main()
 
-  print(f"Dice 1: {dice_1:<20} Dice 2: {dice_2:^11} Dice 3: {dice_3:>15} ") 
-  """
-  
-  import random as rand
-  random_n = []
-  for _ in range(6):
-    random_n.append(rand.randint(1,6))
-  print(random_n)
-  
-  
-
-  dices = [dice_1, dice_2, dice_3, dice_4, dice_5, dice_6] 
-  #for i in dices:
-    #for lines in dices[i]:
-get_art()
