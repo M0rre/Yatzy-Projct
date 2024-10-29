@@ -122,10 +122,10 @@ def get_art():
   """
   dice_6 ="""
      _______ 
-    / ●    /|
-   /____● /●|
-  | ●  ● |● |
-  | ●  ● |●/ 
+    / o    /|
+   /____o /o|
+  | ●  ● |o |
+  | ●  ● |o/ 
   |_●__●_|/  
   """
 
@@ -134,11 +134,24 @@ def get_art():
   
   for line in lines:
     print(" ".join(line))
-"""
+  """
   dices = dice_1, dice_2, dice_3, dice_4, dice_5, dice_6
   spacing = ' '* 5
   for pieces in zip(*(dice.splitlines() for dice in dices)):
     print(spacing.join(pieces))
 
-  print(f"Dice 1: {dice_1:<20} Dice 2: {dice_2:^11} Dice 3: {dice_3:>15} ") """
+  print(f"Dice 1: {dice_1:<20} Dice 2: {dice_2:^11} Dice 3: {dice_3:>15} ") 
+  """
+  
+  import random as rand
+  random_n = []
+  for _ in range(6):
+    random_n.append(rand.randint(1,6))
+  print(random_n)
+  
+  
+
+  dices = [dice_1, dice_2, dice_3, dice_4, dice_5, dice_6] 
+  #for i in dices:
+    #for lines in dices[i]:
 get_art()
