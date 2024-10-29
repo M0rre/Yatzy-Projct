@@ -1,85 +1,95 @@
-def game_rules():
+#Ta bort denna sen
+import random as rand
+current_dice = []
+for _ in range(6):
+    current_dice.append(rand.randint(1,6))
+print("Rolled dice", current_dice)
 
 
-    #Ta bort denna sen
-    import random as rand
-    random_n = []
-    for _ in range(6):
-        random_n.append(rand.randint(1,6))
-    print(random_n)
 
-    random_n[0], random_n[1], random_n[2], random_n[3], random_n[4], random_n[5]
+def scoreboard():
 
-    #Delar upp random_n till 5 olika listor med en "dice" i varje
+    scoreboard = {
+        "Ones": None, 
+        "Twos": None,
+        "Threes": None,
+        "Fours": None,
+        "Fives": None,
+        "Sixes": None,
+        "One Pair": None,
+        "Two Pairs": None,
+        "Three of a Kind": None,
+        "Four of a Kind": None,
+        "Small straight": None,
+        "Large straight": None,
+        "Full House": None,
+        "Chance": None,
+        "Yatzy": None,
+    }
+    return scoreboard
 
-    dices = [random_n[i:i+1] for i in range(0, len(random_n), 1)]
-    #print(dices)
 
 
+
+
+def calculate_upper_section(dice, number):
+    return dice.count(number) * number
+
+def calculate_lower_section(dice)
+    pairs = [dice]
+"""
     #Ettor
     ones_count = 0 
-    for number in random_n:
+    for number in current_dice:
         if number == 1:
             ones_count += 1  
-            if ones_count > 0:
-                print(f'Put {ones_count} on category "Ones"? ')
+    if ones_count > 0:
+        return ones_count
             
-
-
     #Tvåor 
-    two_count = 0
-    for number in random_n:
+    twos_count = 0
+    for number in current_dice:
         if number == 2:
-            two_count += 2
-            if two_count > 2:
-                print(f'Put {two_count} on category "Twos"?')
+            twos_count += 1
+    if twos_count > 0:
+        return twos_count
     #Treor
-    three_count = 0 
-    for number in random_n:
+    threes_count = 0 
+    for number in current_dice:
         if number == 3:
-            three_count += 3
-            if three_count > 3:
-                print(f'Put {three_count} on category "Threes"?')
+            threes_count += 1
+    if threes_count > 0:
+        return threes_count
     #Fyror
-    four_count = 0 
-    for number in random_n:
+    fours_count = 0 
+    for number in current_dice:
         if number == 4:
-            four_count += 4
-            if four_count > 4:
-                print(f'Put {four_count} on category "fours"?')     
+            fours_count += 1
+    if fours_count > 0:
+        return fours_count     
     #Femmor
-    five_count = 0 
-    for number in random_n:
+    fives_count = 0 
+    for number in current_dice:
         if number == 5:
-            five_count += 5
-            if five_count > 5:
-                print(f'Put {five_count} on category "Fives"?')
+            fives_count += 1
+    if fives_count > 0:
+        return fives_count
     #Sexor
-    six_count = 0 
-    for number in random_n:
+    sixs_count = 0 
+    for number in current_dice:
         if number == 6:
-            six_count += 6
-            if six_count > 6:
-                print(f'Put {six_count} on category "Sixes"?')
+            sixs_count += 1
+    if sixs_count > 0:
+        return sixs_count
+"""
+    
 
 
-    ### BONUS
-    #Par
 
-    #Två Par
 
-    #Triss
 
-    #Fyrtal
+#for _ in range(len(score_board)):
 
-    #Kåk
-
-    #Liten Stege
-
-    #Stor Stege
-
-    #Chans 
-
-    #Yatzy
-
-game_rules()
+score()
+calculate_upper_section()
+calculate_score(category, dice)
