@@ -179,7 +179,7 @@ Then dialed it in for so that we got some decent results
     ░▒▓█▓▒░
 ```
 
-## Made some neat dice
+## Realized how stupid they looked and made some neat dice
 ### Neat dice:
 ```
 1
