@@ -80,12 +80,12 @@ def get_art(current_dice):
 
     # Build the visual representation of the dice roll
     lines = zip(*(dice[roll - 1].splitlines() for roll in current_dice))
-    return "\n".join(" ".join(line) for line in lines), big_line
+    return "\n".join(" ".join(line) for line in lines)
 
 def roll_dice(total_dice=5, max_rolls=3): # TODO Add to config files
     held_dices = []
     held_values = []
-    big_line = "="*92
+    big_line = "="*84
     current_dice = get_dice_roll(held_dices, held_values, total_dice)
     
     for roll_number in range(max_rolls):
@@ -100,7 +100,7 @@ def roll_dice(total_dice=5, max_rolls=3): # TODO Add to config files
             if held_input: # Made dynamic lines, why? Idk ocd or something                      also why this V is here
                 print(big_line+"="+("="*len(held_input)))
             else:    
-                print("====================================================================================")
+                print(big_line)
             
             
             if held_input.strip() == "0":
