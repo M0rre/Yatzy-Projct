@@ -7,7 +7,22 @@ def error_handling_int(external_input):
             return int(user_input)
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
-    
+
+
+
+
+def error_handling_string(external_input):
+    while True:
+        try:
+            user_input = input(external_input)
+            if not user_input.strip():
+                raise ValueError("Input cannot be empty or whitespace.")
+            return (user_input) #Returns if valid
+        except ValueError:
+            print("Invalid input. Please enter a valid string.")
+
+
+
     """
     Example on how to use ^
     user_number = error_handling_int("Enter a number: ")
@@ -28,3 +43,5 @@ def config():
             "max_rolls": max_rolls, 
             "total_dice": total_dice
             } # Return as dictionary so we don't have to type as much #  ~Lazy~
+
+
