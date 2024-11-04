@@ -8,12 +8,23 @@ def user_menu():
 |__|_|  (____  /__/\_ \__|  / ____|(____  /__| /_____ \/ ____|
       \/     \/      \/     \/          \/           \/\/     
 ==============================================================
-1. Singleplayer
-2. Multiplayer
-3. Config (Only if maxi yatzy)
-4. Rules (WIP just print a txt file tho)
+1. Start
+2. Rules (WIP just print a txt file tho)
 
 0. Exit program
           """)
-    user_menu_input = input("Choose form menu (0-4)")
+        user_menu_input = input("Choose form menu (0-4)")
+
+        match user_menu_input:
+            case "1":
+                    game()
+            case "0":
+                    exit(1)
+                    
+def game():
+        
+
+
+
+game()
 user_menu()

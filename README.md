@@ -4,5 +4,5 @@ https://www.spelregler.org/maxi-yatzy-regler/
 
 HEJ
 
-Max timmar : 3
+Max timmar : 3+5
 Teo timmar : 2 ish

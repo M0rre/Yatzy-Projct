@@ -89,39 +89,35 @@ def roll_dice(total_dice=5, max_rolls=3): # TODO Add to config files
     current_dice = get_dice_roll(held_dices, held_values, total_dice)
     
     for roll_number in range(max_rolls):
-        
-        print(f"Roll {roll_number + 1} Result:")
-        print(get_art(current_dice))
+            if roll_number+1 < max_rolls:
+                    print(f"Roll {roll_number + 1} Result:")
+                    print(get_art(current_dice))
+            if roll_number+1 == max_rolls:
+                    print("Final Result:")
+                    print(get_art(current_dice))
+            if roll_number < max_rolls - 1:  # Don't hold on the last roll
+                # Ask the user which dice to hold
+                held_input = input(f"Enter the dices of the dice to hold (1-{total_dice} or 0 to stop rolling), separated by commas: ")
+                
+                if held_input: # Made dynamic lines, why? Idk ocd or something
+                    print(big_line+"="+("="*len(held_input)))
+                else:    
+                    print(big_line)
+                
+                
+                if held_input.strip() == "0":
+                    print("Skipped remaining rolls")
+                    break
+                
+                if held_input.strip():  # If there's an input, make som use out of it
+                    held_dices = [int(i)-1 for i in held_input.split(',') if i.strip().isdigit()]
+                    held_values = [current_dice[i] for i in held_dices if i < total_dice]  # Keep only valid dices
 
-        if roll_number < max_rolls - 1:  # Don't hold on the last roll
-            # Ask the user which dice to hold
-            held_input = input(f"Enter the dices of the dice to hold (1-{total_dice} or 0 to stop rolling), separated by commas: ")
-            
-            if held_input: # Made dynamic lines, why? Idk ocd or something                      also why this V is here
-                print(big_line+"="+("="*len(held_input)))
-            else:    
-                print(big_line)
-            
-            
-            if held_input.strip() == "0":
-                print("Skipped remaining rolls")
-                break
-            
-            if held_input.strip():  # If there's an input, use it
-                held_dices = [int(i)-1 for i in held_input.split(',') if i.strip().isdigit()]
-                held_values = [current_dice[i] for i in held_dices if i < total_dice]  # Keep only valid dices
+                # Roll the dice again
+                current_dice = get_dice_roll(held_dices, held_values, total_dice)
 
-            # Roll the dice again
-            current_dice = get_dice_roll(held_dices, held_values, total_dice)
-
-    print("\n\n")
-    print(big_line)
-    print("Final Result:")
-    print(big_line)
-    print(get_art(current_dice))
-    
     return current_dice
 
 if __name__ == "__main__":
     final_outcome = roll_dice()
-    print("Final outcome for use in other files:", final_outcome)
+    print("Final outcome for use in other files:", final_outcome) # TODO USE IN GAME.PY

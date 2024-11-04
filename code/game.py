@@ -35,10 +35,10 @@ def scoreboard():
 def calculate_upper_section(dice, number):
     return dice.count(number) * number
 
-def calculate_lower_section(dice)
+def calculate_lower_section(dice):
     pairs = [dice]
 """
-    #Ettor
+    #Ones
     ones_count = 0 
     for number in current_dice:
         if number == 1:
@@ -46,35 +46,35 @@ def calculate_lower_section(dice)
     if ones_count > 0:
         return ones_count
             
-    #Tvåor 
+    #Twoos 
     twos_count = 0
     for number in current_dice:
         if number == 2:
             twos_count += 1
     if twos_count > 0:
         return twos_count
-    #Treor
+    #Threes
     threes_count = 0 
     for number in current_dice:
         if number == 3:
             threes_count += 1
     if threes_count > 0:
         return threes_count
-    #Fyror
+    #Fours
     fours_count = 0 
     for number in current_dice:
         if number == 4:
             fours_count += 1
     if fours_count > 0:
         return fours_count     
-    #Femmor
+    #Fives
     fives_count = 0 
     for number in current_dice:
         if number == 5:
             fives_count += 1
     if fives_count > 0:
         return fives_count
-    #Sexor
+    #Six'
     sixs_count = 0 
     for number in current_dice:
         if number == 6:

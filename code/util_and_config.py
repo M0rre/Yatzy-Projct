@@ -19,3 +19,12 @@ def clear_terminal():
     import os
     os.system('cls' if os.name == 'nt' else 'clear')
     # found how to find out if it's windows/linux: https://note.nkmk.me/en/python-platform-system-release-version/
+    
+def config():
+    max_rolls = 3
+    total_dice = 5
+    
+    return {
+            "max_rolls": max_rolls, 
+            "total_dice": total_dice
+            } # Return as dictionary so we don't have to type as much #  ~Lazy~
