@@ -85,7 +85,8 @@ def get_art(current_dice):
 def roll_dice(total_dice=5, max_rolls=3): # TODO Add to config files
     held_dices = []
     held_values = []
-    big_line = "="*84
+    big_line = "="*97
+    
     current_dice = get_dice_roll(held_dices, held_values, total_dice)
     
     for roll_number in range(max_rolls):
@@ -97,7 +98,7 @@ def roll_dice(total_dice=5, max_rolls=3): # TODO Add to config files
                     print(get_art(current_dice))
             if roll_number < max_rolls - 1:  # Don't hold on the last roll
                 # Ask the user which dice to hold
-                held_input = input(f"Enter the dices of the dice to hold (1-{total_dice} or 0 to stop rolling), separated by commas: ")
+                held_input = input(f"Enter the dices of the dice to hold (1-{total_dice}, leave blank or 0 to stop rolling), separated by commas: ")
                 
                 if held_input: # Made dynamic lines, why? Idk ocd or something
                     print(big_line+"="+("="*len(held_input)))
@@ -109,8 +110,9 @@ def roll_dice(total_dice=5, max_rolls=3): # TODO Add to config files
                     print("Skipped remaining rolls")
                     break
                 
-                if held_input.strip():  # If there's an input, make som use out of it
-                    held_dices = [int(i)-1 for i in held_input.split(',') if i.strip().isdigit()]
+                if held_input.strip():  # If there's an input, make som use out of it and OMG TODO#// INPUT IS OUT OF RANGE ngl simple fix just added everything after the and
+                    #. TODO if duplicates it breaks # // made into a set that converts to list
+                    held_dices = list({int(i)-1 for i in held_input.split(',') if i.strip().isdigit() and 1 <=int(i) <= total_dice})
                     held_values = [current_dice[i] for i in held_dices if i < total_dice]  # Keep only valid dices
 
                 # Roll the dice again
