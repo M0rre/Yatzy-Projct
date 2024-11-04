@@ -110,8 +110,8 @@ def roll_dice(total_dice=5, max_rolls=3): # TODO Add to config files
                     print("Skipped remaining rolls")
                     break
                 
-                if held_input.strip():  # If there's an input, make som use out of it and OMG TODO#// INPUT IS OUT OF RANGE ngl simple fix just added everything after the and
-                    #. TODO if duplicates it breaks # // made into a set that converts to list
+                if held_input.strip():  # If there's an input, make som use out of it and OMG TODO#// INPUT IS OUT OF RANGE ngl simple fix just added everything after the "and" so it ignores n higher than the max amount of dice set
+                    #. TODO if duplicates it breaks # // made into a set that converts to list so ignores duplicates
                     held_dices = list({int(i)-1 for i in held_input.split(',') if i.strip().isdigit() and 1 <=int(i) <= total_dice})
                     held_values = [current_dice[i] for i in held_dices if i < total_dice]  # Keep only valid dices
 
