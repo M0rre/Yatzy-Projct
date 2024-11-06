@@ -1,6 +1,8 @@
 #funktion för att samla in spelare och avsluta när alla spelare gått med
 
-def scoreboard():
+import util_and_config as uac
+
+def scoreboard(): 
 
     scoreboard = {
         "Ones": None, 
@@ -41,7 +43,7 @@ def get_players():
     players_scoreboards = {}
 
     #Asks for number of players
-    players = int(input("How many players do you want to add? "))
+    players = uac.error_handling_int("How many players do you want to add? ")
 
     #Loop to add each player 
     for i in range(players):
@@ -60,5 +62,29 @@ def print_scoreboards(player_scoreboards):
         for category, score in board.items():
             print(f"{category}: {score}")
 
+def print_scoreboard_two(players_scoreboards):
+    #Creates a list of the keys (player names)
+    player_names = list(players_scoreboards)
+
+    #Header for names
+    print(f"{'Category':<20}", end="") # <20 kan vi nog ändra 
+    for player in player_names:
+        print(f"{player:<{15}}", end="")
+    print()
+
+    #Print each category and then scores
+    categories = list(scoreboard().keys()) # Get a list from categories from the scoreboard
+    for category in categories:
+        print(f"{category:<{20}}", end="")# samma vänstersak
+        for player in player_names:
+            #Gets player score for category
+            score = players_scoreboards[player][category]
+            score_str = f"{score}" if score is not None else 0 
+            print(f"{score_str:<15}", end="") #Score colum
+        print()
+
+
+
+
 players_scoreboards = get_players()
-print_scoreboards(players_scoreboards)
+print_scoreboard_two(players_scoreboards)
