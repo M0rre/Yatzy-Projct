@@ -103,6 +103,7 @@ def get_options(final_outcome, current_player, players_scoreboards): #This shit 
                                 
                         elif picked_category == "Pair":
                                 # Finds largest key aka just the pair face, we times it with two because it's two of em 
+                                # Also as I said before literally type [what you want]() and it works
                                 players_scoreboards[current_player][picked_category] = max(u for u,j in c.items() if j >= 2)*2 
                                 
                         elif picked_category == "Two Pairs":
