@@ -38,7 +38,6 @@ def get_options(final_outcome, current_player, players_scoreboards): #This shit 
         if players_scoreboards[current_player]["Full House"] is None and any(n >= 4 for n in c.values()): #TODO fix recognition
                 available_categories.append("Full House")
                 
-                
         if players_scoreboards[current_player]["Small straight"] is None and sorted(final_outcome) == [1, 2, 3, 4, 5]:
                 available_categories.append("Small straight")
                 
@@ -95,13 +94,15 @@ def get_options(final_outcome, current_player, players_scoreboards): #This shit 
                         elif picked_category == "Full House":
                                 players_scoreboards[current_player][picked_category] = "Full House"# TODO count outcome
                                 
-                                
                         elif picked_category == "Small straight":
                                 players_scoreboards[current_player][picked_category] = 15
+                                
                         elif picked_category == "Large straight":
                                 players_scoreboards[current_player][picked_category] = 20
+                                
                         elif picked_category == "Chance":
                                 players_scoreboards[current_player][picked_category] = sum(final_outcome)
+                                
                         elif picked_category == "Yatzy":
                                 players_scoreboards[current_player][picked_category] = 50
                         
