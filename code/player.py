@@ -43,7 +43,7 @@ def get_players():
     players_scoreboards = {}
 
     #Asks for number of players
-    players = uac.error_handling_int("How many players do you want to add? ")
+    players = uac.error_handling_int("How many players do you want to add? (No duplicates): ")
 
     #Loop to add each player 
     for i in range(players):
@@ -55,36 +55,41 @@ def get_players():
     return players_scoreboards
 
 
-def print_scoreboards(player_scoreboards):
+def print_all_scoreboards(player_scoreboards):
     #For printing scoreboards in a nice way
     for player, board in player_scoreboards.items():
         print(f"\nScoreboard for {player}:")
         for category, score in board.items():
             print(f"{category}: {score}")
 
-def print_scoreboard_two(players_scoreboards):
+def print_scoreboard(players_scoreboards):
     #Creates a list of the keys (player names)
     player_names = list(players_scoreboards)
-
+    player_column_widths = {player: len(player) + 2 for player in player_names}
     #Header for names
-    print(f"{'Category':<20}", end="") # <20 kan vi nog ändra 
+    print("\033[4m\u00A0\033[0m"*(19+sum(int(i) for i in player_column_widths.values())+len(player_names))) # 19 is for category len, pipes and spaces and len(player_names is there for the additional pipes created by each player)
+    #magic numbers: ""\033[4m   \033[0m"" for underline and "\u00A0" for a space that accepts underlines
+    print(f"\033[4m┃ {'Category':<16}\033[0m", end="\033[4m┃\033[0m")
     for player in player_names:
-        print(f"{player:<{15}}", end="")
+        width = player_column_widths[player]
+        print(f"\033[4m{player:^{width}}\033[0m", end="\033[4m┃\033[0m")
     print()
 
-    #Print each category and then scores
+    
+
+    #Print each category and then scores #?Added some lines for readability on the scoresheet also resized it
     categories = list(scoreboard().keys()) # Get a list from categories from the scoreboard
     for category in categories:
-        print(f"{category:<{20}}", end="")# samma vänstersak
+        print(f"\033[4m┃ {category:<16}\033[0m", end="\033[4m┃\033[0m")# samma vänstersak
         for player in player_names:
             #Gets player score for category
+            width = player_column_widths[player]
             score = players_scoreboards[player][category]
             score_str = f"{score}" if score is not None else 0 
-            print(f"{score_str:<15}", end="") #Score colum
+            print(f"\033[4m{score_str:^{width}}┃\033[0m", end="") #Score colum
         print()
 
 
 
-
 players_scoreboards = get_players()
-print_scoreboard_two(players_scoreboards)
+print_scoreboard(players_scoreboards)
