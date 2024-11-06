@@ -1,29 +1,6 @@
 from collections import Counter
 from player import print_scoreboard
 import util_and_config as uac
-#from main import current_player z#TODO
-
-def scoreboard(): 
-
-    scoreboard = {
-        "Ones": None, 
-        "Twos": None,
-        "Threes": None,
-        "Fours": None,
-        "Fives": None,
-        "Sixes": None,
-        
-        "Pair": None,
-        "Two Pairs": None,
-        "Three of a Kind": None,
-        "Four of a Kind": None,
-        "Small straight": None,
-        "Large straight": None,
-        "Full House": None,
-        "Chance": None,
-        "Yatzy": None,
-    }
-    return scoreboard
 
 def get_options(final_outcome, current_player, players_scoreboards): #This shit is either huge if statement, or I import counter. edit: imported counter
         
@@ -95,10 +72,10 @@ def get_options(final_outcome, current_player, players_scoreboards): #This shit 
                         input("Press enter to continue")
                 # For numbers 1-6, basically did same as when appending but with more steps to make input a number and output string AND non static number for each option
                 elif 1 <= user_category <= len(available_categories):
-                        picked_category = available_categories[user_category-1] # Go back to index values to "browse" where you want to put your dice
-                        if picked_category in one_to_six: # Checks if category is in one of one to six
-                                num = one_to_six.index(picked_category)+1 # Get pos of it aka the number
-                                players_scoreboards[current_player][picked_category] = c[num] * num
+                        picked_category = available_categories[user_category-1] # Go back to index values to "browse" where you want to put your dice and takes string as picked_category value
+                        if picked_category in one_to_six: # Checks if category is in one to six
+                                num = one_to_six.index(picked_category)+1 # Get pos of it aka the number, add one bc index to number
+                                players_scoreboards[current_player][picked_category] = c[num] * num #Multiply that shid
                                 
                                 
                         elif picked_category == "Pair":
@@ -107,7 +84,7 @@ def get_options(final_outcome, current_player, players_scoreboards): #This shit 
                                 players_scoreboards[current_player][picked_category] = max(u for u,j in c.items() if j >= 2)*2 
                                 
                         elif picked_category == "Two Pairs":
-                                players_scoreboards[current_player][picked_category] = # TODO count outcome
+                                players_scoreboards[current_player][picked_category] = "Two Pairs"# TODO count outcome
                                 
                         elif picked_category == "Three of a Kind":
                                 players_scoreboards[current_player][picked_category] = max(u for u,j in c.items() if j >= 3)*3 
@@ -116,7 +93,7 @@ def get_options(final_outcome, current_player, players_scoreboards): #This shit 
                                 players_scoreboards[current_player][picked_category] = max(u for u,j in c.items() if j >= 4)*4 
                                 
                         elif picked_category == "Full House":
-                                players_scoreboards[current_player][picked_category] = # TODO count outcome
+                                players_scoreboards[current_player][picked_category] = "Full House"# TODO count outcome
                                 
                                 
                         elif picked_category == "Small straight":
