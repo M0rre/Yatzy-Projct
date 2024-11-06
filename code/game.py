@@ -12,6 +12,7 @@ def scoreboard():
         "Fours": None,
         "Fives": None,
         "Sixes": None,
+        
         "Pair": None,
         "Two Pairs": None,
         "Three of a Kind": None,
@@ -98,22 +99,31 @@ def get_options(final_outcome, current_player, players_scoreboards): #This shit 
                         if picked_category in one_to_six: # Checks if category is in one of one to six
                                 num = one_to_six.index(picked_category)+1 # Get pos of it aka the number
                                 players_scoreboards[current_player][picked_category] = c[num] * num
+                                
+                                
                         elif picked_category == "Pair":
-                                players_scoreboards[current_player][picked_category] = # TODO count outcome
+                                # Finds largest key aka just the pair face, we times it with two because it's two of em 
+                                players_scoreboards[current_player][picked_category] = max(u for u,j in c.items() if j >= 2)*2 
+                                
                         elif picked_category == "Two Pairs":
                                 players_scoreboards[current_player][picked_category] = # TODO count outcome
+                                
                         elif picked_category == "Three of a Kind":
-                                players_scoreboards[current_player][picked_category] = # TODO count outcome
+                                players_scoreboards[current_player][picked_category] = max(u for u,j in c.items() if j >= 3)*3 
+                                
                         elif picked_category == "Four of a Kind":
-                                players_scoreboards[current_player][picked_category] = # TODO count outcome
+                                players_scoreboards[current_player][picked_category] = max(u for u,j in c.items() if j >= 4)*4 
+                                
                         elif picked_category == "Full House":
                                 players_scoreboards[current_player][picked_category] = # TODO count outcome
+                                
+                                
                         elif picked_category == "Small straight":
                                 players_scoreboards[current_player][picked_category] = 15
                         elif picked_category == "Large straight":
                                 players_scoreboards[current_player][picked_category] = 20
                         elif picked_category == "Chance":
-                                players_scoreboards[current_player][picked_category] = sum(final_outcome)# TODO count outcome
+                                players_scoreboards[current_player][picked_category] = sum(final_outcome)
                         elif picked_category == "Yatzy":
                                 players_scoreboards[current_player][picked_category] = 50
                         
