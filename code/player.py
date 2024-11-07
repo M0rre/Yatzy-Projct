@@ -3,7 +3,6 @@
 import util_and_config as uac
 
 def scoreboard(): 
-
     scoreboard = {
         "Ones": None, 
         "Twos": None,
@@ -24,20 +23,6 @@ def scoreboard():
     }
     return scoreboard
 
-#def get_players():
-"""
-    player_list = []
-
-    players = int(input("How many players do you want to add? "))
-
-    for i in range(players):
-        player_name = input(f"Choose name for player {i + 1}: ")
-        player_list.append(player_name)
-        print(f"Current players:", player_list )
-        i += 1
-
-    print("All players have been added\n",player_list)
-"""
 
 def get_players():
     #Dict to store player names and their individual scoreboard
@@ -48,7 +33,7 @@ def get_players():
         players = uac.error_handling_int("How many players do you want to add? (No duplicates): ")
         if players > 0:
             break
-        print("Players must be at least 1. Please try again")
+        print("Players must be at least 1. Please try again: ")
 
     #Loop to add each player #TODO if 0 it just gives up SO FIX THAT
     for i in range(players): 
@@ -67,6 +52,7 @@ def print_all_scoreboards(player_scoreboards):
         for category, score in board.items():
             print(f"{category}: {score}")
 
+
 def print_scoreboard(players_scoreboards):
     #Creates a list of the keys (player names)
     player_names = list(players_scoreboards)
@@ -79,8 +65,6 @@ def print_scoreboard(players_scoreboards):
         width = player_column_widths[player]
         print(f"\033[4m{player:^{width}}\033[0m", end="\033[4m┃\033[0m")
     print()
-
-    
 
     #Print each category and then scores #?Added some lines for readability on the scoresheet also resized it
     categories = list(scoreboard().keys()) # Get a list from categories from the scoreboard
