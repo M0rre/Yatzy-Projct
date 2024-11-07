@@ -11,7 +11,8 @@ def scoreboard():
         "Fours": None,
         "Fives": None,
         "Sixes": None,
-        "One Pair": None,
+        "Bonus": None,
+        "Pair": None,
         "Two Pairs": None,
         "Three of a Kind": None,
         "Four of a Kind": None,
@@ -45,8 +46,8 @@ def get_players():
     #Asks for number of players
     players = uac.error_handling_int("How many players do you want to add? (No duplicates): ")
 
-    #Loop to add each player 
-    for i in range(players):
+    #Loop to add each player #TODO if 0 it just gives up SO FIX THAT
+    for i in range(players): 
         player_name = input(f"Choose name for player {i + 1}: ")
         players_scoreboards[player_name] = scoreboard() #Assigns a individual scoreboard
         print(f"Current players: {list(players_scoreboards.keys())}")
@@ -93,3 +94,4 @@ def print_scoreboard(players_scoreboards):
 if __name__ == "__main__":
     players_scoreboards = get_players()
     print_scoreboard(players_scoreboards)
+    
