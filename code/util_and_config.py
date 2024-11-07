@@ -43,5 +43,3 @@ def config():
             "max_rolls": max_rolls, 
             "total_dice": total_dice
             } # Return as dictionary so we don't have to type as much #  ~Lazy~
-
-

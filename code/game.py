@@ -35,7 +35,7 @@ def get_options(final_outcome, current_player, players_scoreboards): #This shit 
         if players_scoreboards[current_player]["Four of a Kind"] is None and any(n >= 4 for n in c.values()):
                 available_categories.append("Four of a Kind")
         
-        if players_scoreboards[current_player]["Full House"] is None and any(n >= 4 for n in c.values()): #TODO fix recognition
+        if players_scoreboards[current_player]["Full House"] is None and len(c) == 2 and any(u for u,j in c.items() if j == 2) and any(u for u,j in c.items() if j == 3):
                 available_categories.append("Full House")
                 
         if players_scoreboards[current_player]["Small straight"] is None and sorted(final_outcome) == [1, 2, 3, 4, 5]:
@@ -82,17 +82,30 @@ def get_options(final_outcome, current_player, players_scoreboards): #This shit 
                                 # Also as I said before literally type [what you want]() and it works
                                 players_scoreboards[current_player][picked_category] = max(u for u,j in c.items() if j >= 2)*2 
                                 
-                        elif picked_category == "Two Pairs":
-                                players_scoreboards[current_player][picked_category] = "Two Pairs"# TODO count outcome
-                                
-                        elif picked_category == "Three of a Kind":
+                        elif picked_category == "Two Pairs": #// TODO Try to make for 2 highest pairs, in case of maxiyatzy
+                                players_scoreboards[current_player][picked_category] = sum(n for n in list(sorted((pairs for pairs in (u for u,j in c.items() if j >= 2)),reverse=True)))*2
+                                """if maxiyatzy, inc. this instead and make it into a oneliner:
+                                nice_list = []
+                                another_list = []
+                                nice_list = [n for n in sorted((pairs for pairs in (u for u,j in c.items() if j >= 2)),reverse=True)]
+                                for i in range(2):
+                                        another_list.append(nice_list[i])
+                                print(another_list)
+                                print(sum(another_list)*2)
+                                nice_list=[]
+
+
+                                never the fuck mind index filtering is a thing [:2]: 
+                                sum(n for n in sorted((pairs for pairs in (u for u,j in c.items() if j >= 2)),reverse=True)[:2])*2)
+                                """           
+                        elif picked_category == "Three of a Kind": # We look for highest value of any number that has been counted more than 3 times
                                 players_scoreboards[current_player][picked_category] = max(u for u,j in c.items() if j >= 3)*3 
                                 
                         elif picked_category == "Four of a Kind":
                                 players_scoreboards[current_player][picked_category] = max(u for u,j in c.items() if j >= 4)*4 
                                 
-                        elif picked_category == "Full House":
-                                players_scoreboards[current_player][picked_category] = "Full House"# TODO count outcome
+                        elif picked_category == "Full House": # Sum because all dice are used, it's already determined that it's a possibility
+                                players_scoreboards[current_player][picked_category] = sum(final_outcome)
                                 
                         elif picked_category == "Small straight":
                                 players_scoreboards[current_player][picked_category] = 15

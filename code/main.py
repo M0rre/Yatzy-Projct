@@ -1,7 +1,9 @@
 import util_and_config as uac
+config = uac.config()
 import player
 import dice
 import game
+
 
 def user_menu():
         print("""
@@ -33,7 +35,7 @@ def play_game():
                 for current_player in players:
                         print("Round: ", round + 1)
                         print(f"{current_player}s turn")
-                        final_outcome = dice.roll_dice(total_dice=5, max_rolls=3)
+                        final_outcome = dice.roll_dice(config["total_dice"], config["max_rolls"])
                         game.get_options(final_outcome, current_player, players_scoreboards)
         print("Done")
                        
