@@ -43,8 +43,12 @@ def get_players():
     #Dict to store player names and their individual scoreboard
     players_scoreboards = {}
 
-    #Asks for number of players
-    players = uac.error_handling_int("How many players do you want to add? (No duplicates): ")
+    #Asks for number of players and keeps asking if players = 0
+    while True:
+        players = uac.error_handling_int("How many players do you want to add? (No duplicates): ")
+        if players > 0:
+            break
+        print("Players must be at least 1. Please try again")
 
     #Loop to add each player #TODO if 0 it just gives up SO FIX THAT
     for i in range(players): 
