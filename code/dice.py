@@ -82,7 +82,7 @@ def get_art(current_dice):
     lines = zip(*(dice[roll - 1].splitlines() for roll in current_dice))
     return "\n".join(" ".join(line) for line in lines)
 
-def roll_dice(total_dice=5, max_rolls=3): # TODO Add to config files
+def roll_dice(total_dice=5, max_rolls=3): # TODO Add to config file
     held_dices = []
     held_values = []
     big_line = "="*97
@@ -110,9 +110,9 @@ def roll_dice(total_dice=5, max_rolls=3): # TODO Add to config files
                     print("Skipped remaining rolls")
                     break
                 
-                if held_input.strip():  # If there's an input, make som use out of it and OMG TODO#// INPUT IS OUT OF RANGE ngl simple fix just added everything after the "and" so it ignores n higher than the max amount of dice set
+                if held_input.strip():  # If there's an input, make som use out of it and TODO#// INPUT IS OUT OF RANGE 
                     #. TODO if duplicates it breaks # // made into a set that converts to list so ignores duplicates
-                    held_dices = list({int(i)-1 for i in held_input.split(',') if i.strip().isdigit() and 1 <=int(i) <= total_dice})
+                    held_dices = list({int(i)-1 for i in held_input.split(',') if i.strip().isdigit() and 1 <=int(i) <= total_dice}) # Ignores numbers to largenow
                     held_values = [current_dice[i] for i in held_dices if i < total_dice]  # Keep only valid dices
 
                 # Roll the dice again
@@ -120,6 +120,5 @@ def roll_dice(total_dice=5, max_rolls=3): # TODO Add to config files
 
     return current_dice
 
-if __name__ == "__main__":
-    final_outcome = roll_dice()
-    print("Final outcome for use in other files:", final_outcome) # TODO USE IN GAME.PY
+
+# The thing you commented must've been me trying to return only the variable because I tried to use it in other files by only importing that variable later, which did not work... but it didn't destroy anything either so I guess that's where it came from

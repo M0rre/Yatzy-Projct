@@ -82,4 +82,3 @@ def print_scoreboard(players_scoreboards):
 if __name__ == "__main__":
     players_scoreboards = get_players()
     print_scoreboard(players_scoreboards)
-    
