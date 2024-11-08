@@ -24,3 +24,5 @@ full_house = sum(n for n in list(sorted((u for u,j in c.items() if j >= 2),rever
 print(full_house)
 #^^ Just excessive simply sum() smh
 print(len(c))
+
+

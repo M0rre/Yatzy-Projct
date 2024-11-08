@@ -82,7 +82,7 @@ def get_art(current_dice):
     lines = zip(*(dice[roll - 1].splitlines() for roll in current_dice))
     return "\n".join(" ".join(line) for line in lines)
 
-def roll_dice(total_dice=5, max_rolls=3): # TODO Add to config file
+def roll_dice(total_dice=5, max_rolls=3):
     held_dices = []
     held_values = []
     big_line = "="*97
@@ -105,7 +105,6 @@ def roll_dice(total_dice=5, max_rolls=3): # TODO Add to config file
                 else:    
                     print(big_line)
                 
-                
                 if held_input.strip() == "0":
                     print("Skipped remaining rolls")
                     break
@@ -117,8 +116,5 @@ def roll_dice(total_dice=5, max_rolls=3): # TODO Add to config file
 
                 # Roll the dice again
                 current_dice = get_dice_roll(held_dices, held_values, total_dice)
-
+                
     return current_dice
-
-
-# The thing you commented must've been me trying to return only the variable because I tried to use it in other files by only importing that variable later, which did not work... but it didn't destroy anything either so I guess that's where it came from

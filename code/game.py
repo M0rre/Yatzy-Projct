@@ -7,22 +7,15 @@ def get_options(final_outcome, current_player, players_scoreboards): #This shit 
         # did some research for counters 
         # https://docs.python.org/3/library/collections.html#collections.Counter
         # like by this point ill just type "[what i want to do]()" and it will prob have a function for it, aka found any()
-       
 
         c = Counter(final_outcome)
         available_categories = []
 
-        #TODO I mean they're pretty much one rule so simplify into one later
-        
-        # TODO Add bonus
-       
-        
         one_to_six = ["Ones", "Twos", "Threes", "Fours", "Fives", "Sixes"]
         for i in range(1,7):
                 if players_scoreboards[current_player][one_to_six[i-1]] is None and c[i] > 0:
                         available_categories.append(one_to_six[i-1])
                 
-        # like by this point ill just type "[what i want to do]()" and it will prob have a function for it, aka found "any()"" that way
         if players_scoreboards[current_player]["Pair"] is None and any(n >= 2 for n in c.values()):
                 available_categories.append("Pair")
                                                                         #1 constant to count x times there's been two pairs in final_outcome
@@ -50,6 +43,7 @@ def get_options(final_outcome, current_player, players_scoreboards): #This shit 
         if players_scoreboards[current_player]["Yatzy"] is None and any(n >= 5 for n in c.values()):
                 available_categories.append("Yatzy")
                 
+        available_categories.append("Cross out")
                 
         print(f"Choose (0-{len(available_categories)})\n0: Show scoreboard")
         for category in available_categories:
@@ -57,11 +51,6 @@ def get_options(final_outcome, current_player, players_scoreboards): #This shit 
         
         print(available_categories)
         
-        
-        
-        #todo add while loop that checks if value is in range 
-        
-        #todo add ability to make something a 0 when you cannot put dice anywhere
         
         while True:
                 user_category = uac.error_handling_int("Enter an option: ")
@@ -82,22 +71,9 @@ def get_options(final_outcome, current_player, players_scoreboards): #This shit 
                                 # Also as I said before literally type [what you want]() and it works
                                 players_scoreboards[current_player][picked_category] = max(u for u,j in c.items() if j >= 2)*2 
                                 
-                        elif picked_category == "Two Pairs": #// TODO Try to make for 2 highest pairs, in case of maxiyatzy
+                        elif picked_category == "Two Pairs":
                                 players_scoreboards[current_player][picked_category] = sum(n for n in list(sorted((pairs for pairs in (u for u,j in c.items() if j >= 2)),reverse=True)))*2
-                                """if maxiyatzy, inc. this instead and make it into a oneliner:
-                                nice_list = []
-                                another_list = []
-                                nice_list = [n for n in sorted((pairs for pairs in (u for u,j in c.items() if j >= 2)),reverse=True)]
-                                for i in range(2):
-                                        another_list.append(nice_list[i])
-                                print(another_list)
-                                print(sum(another_list)*2)
-                                nice_list=[]
-
-
-                                never the fuck mind index filtering is a thing [:2]: 
-                                sum(n for n in sorted((pairs for pairs in (u for u,j in c.items() if j >= 2)),reverse=True)[:2])*2)
-                                """           
+        
                         elif picked_category == "Three of a Kind": # We look for highest value of any number that has been counted more than 3 times
                                 players_scoreboards[current_player][picked_category] = max(u for u,j in c.items() if j >= 3)*3 
                                 
@@ -118,11 +94,38 @@ def get_options(final_outcome, current_player, players_scoreboards): #This shit 
                                 
                         elif picked_category == "Yatzy":
                                 players_scoreboards[current_player][picked_category] = 50
+                                
+                                
+                        elif picked_category == "Cross out":
                         
-                
+                                available_categories_cross_out = [category for category in players_scoreboards[current_player] if players_scoreboards[current_player][category] is None]
+                                available_categories_cross_out.remove("Bonus") # So you cannot cross out the bonus
+                                
+                                print(f"Choose (0-{len(available_categories_cross_out)})\n0: Show scoreboard")
+                                for category in available_categories_cross_out:
+                                        print(f"{available_categories_cross_out.index(category)+1}: {category}")
+                                
+                                
+                                while True:
+                                        user_category_cross_out = uac.error_handling_int("Enter an option: ")
+                                        if user_category_cross_out == 0:
+                                                print_scoreboard(players_scoreboards)
+                                                input("Press enter to continue")
+                                        elif 1 <= user_category_cross_out <= len(available_categories_cross_out):
+                                                players_scoreboards[current_player][available_categories_cross_out[user_category_cross_out - 1]] = 0
+                                                break
+                                        else:
+                                                print("Invalid choice, please choose a valid option: ")
+                                    
+                          
+                        
+                        # Add bonus for one to six, also I did it again [what I need to be done/checked]()
+                        if all(players_scoreboards[current_player][category] is not None for category in one_to_six):
+                                ots = sum(players_scoreboards[current_player][category] for category in one_to_six)
+                                if ots >= 63:
+                                        players_scoreboards[current_player]["Bonus"] = 50                           
+                                                
+                                                
                         print_scoreboard(players_scoreboards)
                         input("Press enter to continue")
                         break 
-
-
-        available_categories = []

@@ -1,5 +1,3 @@
-#funktion för att samla in spelare och avsluta när alla spelare gått med
-
 import util_and_config as uac
 
 def scoreboard(): 
@@ -22,7 +20,6 @@ def scoreboard():
         "Yatzy": None,
     }
     return scoreboard
-
 
 def get_players():
     #Dict to store player names and their individual scoreboard
@@ -75,10 +72,7 @@ def print_scoreboard(players_scoreboards):
             width = player_column_widths[player]
             score = players_scoreboards[player][category]
             score_str = f"{score}" if score is not None else 0 
+            score_str = "-" if score == 0 else score_str # So crossed out values are more visible
             print(f"\033[4m{score_str:^{width}}┃\033[0m", end="") #Score colum
         print()
 
-
-if __name__ == "__main__":
-    players_scoreboards = get_players()
-    print_scoreboard(players_scoreboards)
