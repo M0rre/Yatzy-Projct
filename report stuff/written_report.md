@@ -261,10 +261,10 @@ Then dialed it in for so that we got some decent results
 ```
 
 # Written report Yatzy Project
-
+NGDNS
 Max Morén and Teo Saveros
-Grade: X
-
+Grade: A
+2024-11-08
 ### Introduction
 
 This project involves the development of a text based version of _Yatzy_. Yatzy is a popular dice game where players roll five dice and aim to score the highest points by achieving specific combinations such as "Fives", "Full House", "Three of a Kind" or "Yatzy". The goal is to fill out the scoreboard with as many points as possible.
