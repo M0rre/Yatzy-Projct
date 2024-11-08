@@ -89,7 +89,7 @@ def save_to_file(players_scoreboards):
                 
 
                 #split to player and score
-                player, score = player_data.split(":")
+                player, score = player_data.split("円")
                 #Turn score to int for reordering later
                 previous_scores.append((player, int(score)))
     except FileNotFoundError:
@@ -107,7 +107,7 @@ def save_to_file(players_scoreboards):
 
     with open(filename, 'w') as file:
         for player, score in previous_scores:
-            file.write(f"{player}: {score}\n")
+            file.write(f"{player}円 {score}\n")
 
     print("Scoreboard saved and sorted")
         
