@@ -19,7 +19,7 @@ def get_options(final_outcome, current_player, players_scoreboards): #This shit 
         if players_scoreboards[current_player]["Pair"] is None and any(n >= 2 for n in c.values()):
                 available_categories.append("Pair")
                                                                         #1 constant to count x times there's been two pairs in final_outcome
-        if players_scoreboards[current_player]["Two Pairs"] is None and sum(1 for value in c.values() if value >= 2) >= 2:
+        if players_scoreboards[current_player]["Two Pairs"] is None and sum(1 for n in c.values() if n >= 2) >= 2:
                 available_categories.append("Two Pairs")
                 
         if players_scoreboards[current_player]["Three of a Kind"] is None and any(n >= 3 for n in c.values()):
