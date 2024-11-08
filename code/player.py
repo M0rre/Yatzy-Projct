@@ -32,7 +32,7 @@ def get_players():
             break
         print("Players must be at least 1. Please try again: ")
 
-    #Loop to add each player #TODO if 0 it just gives up SO FIX THAT
+    #Loop to add each player 
     for i in range(players): 
         player_name = input(f"Choose name for player {i + 1}: ")
         players_scoreboards[player_name] = scoreboard() #Assigns a individual scoreboard
@@ -63,7 +63,7 @@ def print_scoreboard(players_scoreboards):
         print(f"\033[4m{player:^{width}}\033[0m", end="\033[4m┃\033[0m")
     print()
 
-    #Print each category and then scores #?Added some lines for readability on the scoresheet also resized it
+    #Print each category and then scores 
     categories = list(scoreboard().keys()) # Get a list from categories from the scoreboard
     for category in categories:
         print(f"\033[4m┃ {category:<16}\033[0m", end="\033[4m┃\033[0m")# samma vänstersak
