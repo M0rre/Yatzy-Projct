@@ -39,6 +39,12 @@ def play_game():
                         game.get_options(final_outcome, current_player, players_scoreboards)
         print("Done")
                        
+def save_to_file():
 
+        filename = "highscore_file.txt"
+        with open(filename, 'w') as file:
+                for players in player:
+                        file.write(f"{player}, {sum(score)}")
+                        file.write("------------")
 
 user_menu()
