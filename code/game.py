@@ -49,8 +49,6 @@ def get_options(final_outcome, current_player, players_scoreboards): #This shit 
         for category in available_categories:
                 print(f"{available_categories.index(category)+1}: {category}")
         
-        print(available_categories)
-        
         
         while True:
                 user_category = uac.error_handling_int("Enter an option: ")
