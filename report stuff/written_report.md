@@ -293,17 +293,17 @@ First we find the file and check if there is previous scores already there and t
 
 ##### Anything else that required a bit of thought
 
-The first iteration of the scoreboard was a completely separate scoreboard for each player that got printed beneath each other. This was really ugly to look at and would have made the game more confusing while playing. After some thinking and testing we came up with the finalized scoreboard used in the game now. 
+One challenge we encountered early was that the first design of the scoreboard was a completely separate scoreboard for each player that got printed beneath each other. This was really ugly to look at and would have made the game more confusing while playing. After some thinking and testing we came up with the finalized scoreboard used in the game now. 
 
 Creating dynamic lines for the scoreboard took some time.
 
 ### Lessons Learned
 
-Visual studio code can be tricky sometimes with compiling and syncing code and we learned that patience is key. We learned that if you want something you can do this "[what u want to happen](what you want it happening to)". 
+Throughout the process we learned several valuable lessons. For example Visual studio code can be tricky sometimes with compiling and syncing code and we learned that patience is key. We learned that if you want something you can do this "[what u want to happen](what you want it happening to)". 
 
 ### Project Work
 
-While working with this project we often organized the work accordingly to what we felt we were able to do each time we "met" and coded together. We broke the project into smaller pieces which both made it harder at times figuring out what to do first but also made it easier to figure out what should be where. We communicated every other day through discord and snapchat. Our estimate of how many hours we spent on this is roughly 20-30 hours each.
+While working with this project we often organized the work accordingly to what we felt we were able to do each time we "met" and coded together. We also learned the importance of breaking the project into smaller pieces which both made it harder at times figuring out what to do first but also made it easier to figure out what should be where. We communicated every other day through discord and snapchat. Our estimate of how many hours we spent on this is roughly 20-30 hours each.
 
 
 

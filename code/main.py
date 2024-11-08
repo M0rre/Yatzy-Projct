@@ -48,6 +48,12 @@ def play_game():
                         final_outcome = dice.roll_dice(config["total_dice"], config["max_rolls"])
                         game.get_options(final_outcome, current_player, players_scoreboards)
         update_highscore_file(players_scoreboards, filename="code\highscore_file.txt", player_totals = {})
+        
+        for end_players in players:
+
+               score = sum(int(players_scoreboards[current_player]))
+               print(f"{end_players} {score}")
+
 
 def update_highscore_file(players_scoreboards, filename="code\highscore_file.txt", player_totals = {}):
         with open(filename, "r",encoding="utf-8") as file:

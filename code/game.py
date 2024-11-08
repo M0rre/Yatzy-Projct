@@ -122,7 +122,13 @@ def get_options(final_outcome, current_player, players_scoreboards): #This shit 
                                 ots = sum(players_scoreboards[current_player][category] for category in one_to_six)
                                 if ots >= 63:
                                         players_scoreboards[current_player]["Bonus"] = 50                           
-                                                
+                        
+                        
+
+                        for player, category in players_scoreboards.items():
+                                player_score_sum = sum(score for score in category.values() if score is not None)# None needed for testing
+                                player_totals[player] = player_score_sum
+                                players_scoreboards[current_player]["Total"] = player_totals[player]
                                                 
                         print_scoreboard(players_scoreboards)
                         input("Press enter to continue")

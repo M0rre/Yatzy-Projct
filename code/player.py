@@ -18,8 +18,13 @@ def scoreboard():
         "Full House": None,
         "Chance": None,
         "Yatzy": None,
+        "Total": 0,
     }
     return scoreboard
+
+
+
+
 
 def get_players():
     #Dict to store player names and their individual scoreboard
