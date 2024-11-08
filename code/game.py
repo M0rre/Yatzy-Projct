@@ -19,7 +19,7 @@ def get_options(final_outcome, current_player, players_scoreboards): #This shit 
         if players_scoreboards[current_player]["Pair"] is None and any(n >= 2 for n in c.values()):
                 available_categories.append("Pair")
                                                                         #1 constant to count x times there's been two pairs in final_outcome
-        if players_scoreboards[current_player]["Two Pairs"] is None and sum(1 for value in c.values() if value >= 2) >= 2:
+        if players_scoreboards[current_player]["Two Pairs"] is None and sum(1 for n in c.values() if n >= 2) >= 2:
                 available_categories.append("Two Pairs")
                 
         if players_scoreboards[current_player]["Three of a Kind"] is None and any(n >= 3 for n in c.values()):
@@ -121,15 +121,14 @@ def get_options(final_outcome, current_player, players_scoreboards): #This shit 
                         if all(players_scoreboards[current_player][category] is not None for category in one_to_six):
                                 ots = sum(players_scoreboards[current_player][category] for category in one_to_six)
                                 if ots >= 63:
-                                        players_scoreboards[current_player]["Bonus"] = 50                           
-                        
-                        
-
-                        for player, category in players_scoreboards.items():
-                                player_score_sum = sum(score for score in category.values() if score is not None)# None needed for testing
-                                player_totals[player] = player_score_sum
-                                players_scoreboards[current_player]["Total"] = player_totals[player]
-                                                
+                                        players_scoreboards[current_player]["Bonus"] = 50 
+                                        
+                                                                  
+                        total = 0
+                        for category, score in players_scoreboards[current_player].items():
+                                if score is not None and category != "Total":  # Sum only non-None values
+                                        total += score
+                        players_scoreboards[current_player]["Total"] = total
                         print_scoreboard(players_scoreboards)
                         input("Press enter to continue")
                         break 

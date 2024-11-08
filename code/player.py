@@ -18,7 +18,7 @@ def scoreboard():
         "Full House": None,
         "Chance": None,
         "Yatzy": None,
-        "Total": 0,
+        "Total": None,
     }
     return scoreboard
 

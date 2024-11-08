@@ -1,33 +1,52 @@
 # Planning
+
 ## main.py
-* Game loop
-* User input
+
+- Game loop
+- User input
+
 ---
+
 ## game.py
-* Scoring logic
-* rolling dice, choosing scores
-* Winner
+
+- Scoring logic
+- rolling dice, choosing scores
+- Winner
+
 ---
+
 ## dice.py
-* Generate dice
-* Don't forget to keep chosen dice
+
+- Generate dice
+- Don't forget to keep chosen dice
+
 ---
+
 ## player.py
-* Names
-* (Scores)
-* (Number of turns)
+
+- Names
+- (Scores)
+- (Number of turns)
+
 ---
+
 ## scoreboard(.py)
-* Might be a part of player.py
-* Maybe save to either a txt or SQL file
-* Neat lookn' so things such as '-', '_' and '|' as separators 
+
+- Might be a part of player.py
+- Maybe save to either a txt or SQL file
+- Neat lookn' so things such as '-', '\_' and '|' as separators
+
 ---
+
 ## util_and_config.py
-* Error handling
-* Change player count (or make this a choise when starting the came)
-* Number of dice
-* Rules (changing between maxi and normal yatzy)
+
+- Error handling
+- Change player count (or make this a choise when starting the came)
+- Number of dice
+- Rules (changing between maxi and normal yatzy)
+
 ---
+
 # How we created the ascii dice art
 
 First found a stuitable img for the ascii generator:
@@ -36,13 +55,12 @@ First found a stuitable img for the ascii generator:
 Then dialed it in for so that we got some decent results
 ![alt text](./images/ascii_generator.png)
 
-
-
 ### The results:
+
 ```
 
- ░░░░░░░▒███▓▒░░░░░░░░░░░░░░░░▒░░░░░░░░░░░░░░░░░░▒▓▒░░░░░░░ 
-░▓▓▓▓▓███   ░████▓▓▓▓▓▓▓▓▓████▓████▓▓▓▓▓▓▓▓▓▓████▒░████▓▓▓▓░ 
+ ░░░░░░░▒███▓▒░░░░░░░░░░░░░░░░▒░░░░░░░░░░░░░░░░░░▒▓▒░░░░░░░
+░▓▓▓▓▓███   ░████▓▓▓▓▓▓▓▓▓████▓████▓▓▓▓▓▓▓▓▓▓████▒░████▓▓▓▓░
 ░▓▓▓███        ▓██▓▓▓▓▓▓███░      ███▓▓▓▓▓▓███░      ░███▓▓░
 ░▓▓██     ░▒ ░   ██▓▓▓▓██░   ░░░    ██▓▓▓▓██░          ▓█▓▓░
 ░▓▓█   ░  ██░     █▓▓▓██  ██     ██  ▓█▓▓▓█  ░█▒ ██ ██░ ██▓░
@@ -62,14 +80,14 @@ Then dialed it in for so that we got some decent results
 ░▓▓█▓░▒       ▒░▓█▓▓▓▓▓██ ░░     ▒ ▒██▓▓▓▓██░ ░     ░ ░▓██▓░
 ░▓▓▓██ ▒   █  ███▓▓▓▓▓▓▓██░░░  ▓  ███▓▓▓▓▓▓███ ▒  ░░  ███▓▓░
 ░▓▓▓▓███   ▒███▓▓▓▓▓▓▓▓▓▓████  ▒███▓▓▓▓▓▓▓▓▓▓███   ████▓▓▓▓░
- ░░░░░░▒▓█▓▒░░░░░░░░░░░░░░░░▒▓▓▒░░░░░░░░░░░░░░░▒▓█▓▒░░░░░░░ 
+ ░░░░░░▒▓█▓▒░░░░░░░░░░░░░░░░▒▓▓▒░░░░░░░░░░░░░░░▒▓█▓▒░░░░░░░
 ```
-
 
 ### Touched them up a bit:
+
 ```
 
- ░░░░░░░▒███▓▒░░░░░░░░░░░░░░░░▒░░░░░░░░░░░░░░░░░░▒▓▒░░░░░░░ 
+ ░░░░░░░▒███▓▒░░░░░░░░░░░░░░░░▒░░░░░░░░░░░░░░░░░░▒▓▒░░░░░░░
 ░▓▓▓▓▓███   ░████▓▓▓▓▓▓▓▓▓████▓████▓▓▓▓▓▓▓▓▓▓████▒░████▓▓▓▓░
 ░▓▓▓███        ▓██▓▓▓▓▓▓███░      ███▓▓▓▓▓▓███░      ░███▓▓░
 ░▓▓██     ░▒ ░   ██▓▓▓▓██░   ░░░    ██▓▓▓▓██░          ▓█▓▓░
@@ -94,21 +112,24 @@ Then dialed it in for so that we got some decent results
 ```
 
 ### Then split them up and trimmed them:
+
 1:
+
 ```
       ██▓▓██
-    ██░  ░░███ 
-  ███         ▓██ 
+    ██░  ░░███
+  ███         ▓██
  ██     ░▒ ░   ██▓
 ▓█   ░  ██░     █▓
 █   ░░    ░░   █▓
-█▒     ░░  ░ ▒██    
- ██  ░   ░ ░ ██    
-  ███░░   ░███    
-    ████████    
-``` 
+█▒     ░░  ░ ▒██
+ ██  ░   ░ ░ ██
+  ███░░   ░███
+    ████████
+```
 
 2:
+
 ```
     ███▓▓▓███
   ███░      ███
@@ -121,7 +142,9 @@ Then dialed it in for so that we got some decent results
     ███   ████▓
       ██████▓
 ```
+
 3:
+
 ```
     ████▓▓████
  ███░      ░███
@@ -134,24 +157,27 @@ Then dialed it in for so that we got some decent results
     ██▒  ▓███▓
      ▓█████▓
 ```
+
 4:
+
 ```
 
-  ███▓▓▓███    
- ███░  ░  ▓██ 
-██░    ██░   ███   
-█  ██     ██░ ▒█ 
-█      ██  ░   █   
-█▓ ░ ▒▒░░    ▒▓█ 
+  ███▓▓▓███
+ ███░  ░  ▓██
+██░    ██░   ███
+█  ██     ██░ ▒█
+█      ██  ░   █
+█▓ ░ ▒▒░░    ▒▓█
  █▓░▒      ▒░▓█
-  ██ ▒      ███  
-   ███   ████   
-     ▓▓█▓▓   
+  ██ ▒      ███
+   ███   ████
+     ▓▓█▓▓
 ```
- 
+
 5:
+
 ```
- 
+
     ███▓▓▓▓███
   ███░  █  ░███▓
  ██           ██▓
@@ -163,8 +189,9 @@ Then dialed it in for so that we got some decent results
    ████  ▒███▓
      ░░▓▓▒░░
 ```
-  
+
 6:
+
 ```
 
   ███▓▓▓▓▓██
@@ -180,7 +207,9 @@ Then dialed it in for so that we got some decent results
 ```
 
 ## Realized how stupid they looked and made some neat dice
+
 ### Neat dice:
+
 ```
 1
    _______
@@ -190,7 +219,7 @@ Then dialed it in for so that we got some decent results
 |   ●  |●/
 |______|/
 
-2 
+2
    _______
   /● ● ● /|
  /●_●_●_/●|
@@ -232,12 +261,13 @@ Then dialed it in for so that we got some decent results
 ```
 
 # Written report Yatzy Project
+
 Max Morén and Teo Saveros
 Grade: X
 
 ### Introduction
 
-This project involves the development of a text based version of *Yatzy*. Yatzy is a popular dice game where players roll five dice and aim to score the highest points by achieving specific combinations such as "Fives", "Full House", "Three of a Kind" or "Yatzy". The goal is to fill out the scoreboard with as many points as possible.
+This project involves the development of a text based version of _Yatzy_. Yatzy is a popular dice game where players roll five dice and aim to score the highest points by achieving specific combinations such as "Fives", "Full House", "Three of a Kind" or "Yatzy". The goal is to fill out the scoreboard with as many points as possible.
 
 In our project we developed a text based Yatzy game following the Swedish rule set. We build the game in Visual Studio Code to "easily" share the code between the both of us. Our Yatzy game include features like a dice rolling mechanism, player interactive elements to for example keep selected dice and to re-roll dice and an intuitive scoreboard interface. The game supports both a single-player experience and a multiplayer experience. Our programs interface has been designed to be simple to follow and engaging to use with the ASCII dice art.
 
@@ -245,19 +275,21 @@ In our project we developed a text based Yatzy game following the Swedish rule s
 
 ##### How was rolling and re-rolling solved?
 
-We made a for loop that rolled 3 times. Then we had if statements that check what could be done in that roll which then leads to the program asking the user what should be done on that roll. Either save some specific dice, save all or reroll all. After that is done the program states the available categories and ask which category to assign the scores to. 
+We made a for loop that rolled 3 times. Then we had if statements that check what could be done in that roll which then leads to the program asking the user what should be done on that roll. Either save some specific dice, save all or reroll all. After that is done the program states the available categories and ask which category to assign the scores to.
 
 ##### If several players, how was that solved?
 
 The initial design for us was for a multiplayer game but we first thought of creating a working single-player game to then continue building on to code support for multiplayer. But as we implemented the scoreboard and the way to get the player to have its own scoreboard we quickly realized that it would work for multiple players with a simple for loop that iterates over a input where the program ask how many players will be playing.
 This loop is was the first step of getting multiplayer going.
+
 ```python
-    for i in range(players): 
+    for i in range(players):
         player_name = input(f"Choose name for player {i + 1}: ")
         players_scoreboards[player_name] = scoreboard() #Assigns a individual scoreboard
         print(f"Current players: {list(players_scoreboards.keys())}")
 ```
- After that it was just finishing up the code around the rounds and making sure each player gets their turn. 
+
+After that it was just finishing up the code around the rounds and making sure each player gets their turn.
 
 ##### How was the scoreboard shown?
 
@@ -266,11 +298,14 @@ The scoreboard can be viewed at any time while playing and it updates dynamicall
 
 We created the "print_scoreboard" function which include the names of all players and their scores.
 
-The function begins with calculating the width of each player's name and creating a header. The column widths are adjusted based on the length of each player's name to ensure a neat alignment 
+The function begins with calculating the width of each player's name and creating a header. The column widths are adjusted based on the length of each player's name to ensure a neat alignment
+
 ```python
 player_column_widths = {player: len(player) + 2 for player in player_names}
 ```
+
 After setting up the column widths, the function prints the names of the players in the header. Then loops through each category and displays the current scores. If a category has not yet ben assigned with a score it shows "0" or "-" for crossed out values
+
 ```python
 categories = list(scoreboard().keys())  # Get a list from categories from the scoreboard
 for category in categories:
@@ -285,7 +320,22 @@ for category in categories:
 
 ##### How did you decide what categories were possible
 
-max write pls
+To find out what categories were possible we first needed to see which dice we rolled and count them. To count the dice we imported counter and used its dictionary output in most of the checks. One thing we did for all checks was to first see if the category already had a value, this was done by seeing if it still was the original value of "None" or not. If they met their criteria we appended them to the list "available_categories".
+
+- **One to six**: To find out if the numbers one to six were available we made a loop that went through the numbers one by one and checked if they were counted in the counter
+- **Pair**: When we wanted to find out if we had a pair or not we checked if there was any key (number) in the dictionary that had been counted at least 2 times.
+
+- **Two pairs**: The criteria for appending two pairs wasn't that hard either, all we did was to see how many times there was a pair and then summed them all up, if the sum was 2 we appended it.
+
+- **X of a kind**: For x of a kind we looked if there was any number counted more or equal times to that X.
+
+- **Full house**: Full house was the first harder one which took a while to figure out. But in the end the solution was pretty simple. All we did to find was firstly check how many different numbers had been counted by just taking the length of the counter with len(), and if and only if the count was 2 it would proceed, this was necessary because otherwise it would say that full house was available when there was 3 or more of one and any combination of other dice. Then we also checked if there was a dice counted 2 times and one counted 3. But in hindsight im unsure if we needed to check for more than it just having exactly two different dice rolled.
+
+- **Straights**: For the straights we looked at a sorted version of final_outcome (the dice values in a list) and looked if it was equal to [1, 2, 3, 4, 5] or [2, 3, 4, 5, 6], then appending the right one.
+
+- **Chance**: Always available until it has a value that is not None.
+
+- **Yatzy** is the same as X of a kind, except when calculating it, because it has a set value of 50 and the others do not
 
 ##### Reading and writing files?
 
